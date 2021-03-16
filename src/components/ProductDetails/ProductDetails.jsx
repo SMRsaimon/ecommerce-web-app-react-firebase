@@ -18,7 +18,7 @@ const ProductDetails = () => {
 
   const [product] = useContext(productContext);
   const targetProduct = product.find((x) => x.key === id);
-  const { key, category, img, features, name, price, seller, stock } = targetProduct;
+  const { key, category, img, name, price, seller, stock } = targetProduct;
 
   return (
     <>

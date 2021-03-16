@@ -17,8 +17,6 @@ const Review = () => {
 
   }, 0)
 
-
-
   return (
     <div >
       <Grid container className="review-container" >

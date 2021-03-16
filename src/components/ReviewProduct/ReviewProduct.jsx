@@ -5,7 +5,7 @@ import { addToDatabaseCart, removeFromDatabaseCart } from "../../product/utiliti
 import "./ReviewProduct.css";
 
 const ReviewProduct = (props) => {
-  const [product, Cut, setCut] = useContext(productContext);
+  const [, Cut, setCut] = useContext(productContext);
   const { key, quentity, img, name, price, stock } = props.product;
 
   console.log(props.product);

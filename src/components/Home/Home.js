@@ -8,7 +8,7 @@ import { Grid } from '@material-ui/core';
 
 const Home = () => {
 
-  const [products, setProducts] = useContext(productContext)
+  const [products,] = useContext(productContext)
 
 
 

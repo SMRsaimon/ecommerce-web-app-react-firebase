@@ -2,13 +2,13 @@ import { Grid } from '@material-ui/core';
 import React from 'react';
 import { useContext } from 'react';
 import { productContext } from '../../App';
-import { removeFromDatabaseCart } from '../../product/utilities/databaseManager';
+
 import ReviewProduct from '../ReviewProduct/ReviewProduct';
 import "./Review.css"
 
 const Review = () => {
 
-  const [product, Cut, setCut] = useContext(productContext)
+  const [, Cut] = useContext(productContext)
 
   const totalProductPrice = Cut.reduce((total, current) => {
 

@@ -16,9 +16,9 @@ import { useEffect } from "react";
 import fakeData from "../../../product/fakeData";
 
 const Shop = (props) => {
-  const { key, category, img, features, name, price, seller, stock } = props.product;
+  const { key, category, img, name, price } = props.product;
 
-  const [Product, Cut, setCut] = useContext(productContext);
+  const [, Cut, setCut] = useContext(productContext);
   const history = useHistory();
 
   const hendelDetails = (key) => {
@@ -38,7 +38,7 @@ const Shop = (props) => {
       return product;
     });
     setCut(totalProduct);
-  }, []);
+  }, [setCut]);
 
   // Cut product hendeling
 

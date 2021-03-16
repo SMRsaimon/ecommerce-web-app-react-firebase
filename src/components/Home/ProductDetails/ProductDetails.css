@@ -1,0 +1,25 @@
+.ProductDetailsContainer{
+
+  margin-top: 90px;
+}
+
+.card-conatiner{
+
+ min-width: 300px;
+ min-height: 330px;
+ position: relative;
+ top: 50px;
+}
+
+.Card-img{
+  width: 120px;
+  height: 100px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.add-cut-btn-container{
+  position: absolute;
+  bottom: 10px;
+}

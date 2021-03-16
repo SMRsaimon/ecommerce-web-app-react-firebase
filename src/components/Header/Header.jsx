@@ -11,7 +11,7 @@ import Menu from "@material-ui/core/Menu";
 import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import AccountCircle from "@material-ui/icons/AccountCircle";
-import MailIcon from "@material-ui/icons/Mail";
+
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
@@ -82,7 +82,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Header = () => {
+const Header = (props) => {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -238,7 +238,7 @@ const Header = () => {
             <div className={classes.grow} />
 
             {/* Shopping cut Icon  */}
-            <Badge badgeContent={1} color="secondary">
+            <Badge badgeContent={props.totalCut.length} color="secondary">
               <Link style={{ color: "white" }} to="/Cut">
                 <ShoppingCartIcon />
               </Link>

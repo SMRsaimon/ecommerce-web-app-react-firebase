@@ -1,0 +1,27 @@
+.quentity-control-fild input{
+  width: 40px;
+  border: none;
+  text-align: center;
+  border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+    padding: 2px;
+}
+
+
+
+.quentity-control-fild,.image-container-review-product {
+flex-basis: 30%;
+
+}
+
+.price-container, .quentity-control-fild {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.quentity-control-fild  button{
+  padding:5px 15px;
+
+}

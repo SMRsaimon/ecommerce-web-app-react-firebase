@@ -8,26 +8,39 @@ const ReviewProduct = (props) => {
   const [, Cut, setCut] = useContext(productContext);
   const { key, quentity, img, name, price, stock } = props.product;
 
-  console.log(props.product);
-
   // Hendel quentity update
   const hendelQuentityIncress = (id) => {
-    const targetPD = Cut.find((x) => x.key === id);
-    targetPD.quentity = targetPD.quentity + 1;
-    const NewPD = Cut.filter((x) => x.key !== id);
-    setCut([...NewPD, targetPD]);
-    let count = targetPD.quentity;
+    const targetPD = Cut.findIndex((x) => x.key === id);
+    const newCart = Cut;
+    newCart[targetPD].quentity += 1;
+    setCut([...newCart]);
+
+    let count = newCart[targetPD].quentity;
     addToDatabaseCart(id, count);
+
+    // const targetPD = Cut.find((x) => x.key === id);
+    // targetPD.quentity = targetPD.quentity + 1;
+    // const NewPD = Cut.filter((x) => x.key !== id);
+    // setCut([...NewPD, targetPD]);
+    // let count = targetPD.quentity;
+    // addToDatabaseCart(id, count);
   };
   // Hendel decrement
 
   const hendelQuentityDecrement = (id) => {
-    const targetPD = Cut.find((x) => x.key === id);
-    targetPD.quentity = targetPD.quentity >= 2 ? targetPD.quentity - 1 : targetPD.quentity;
-    const NewPD = Cut.filter((x) => x.key !== id);
-    setCut([...NewPD, targetPD]);
-    let count = targetPD.quentity;
+    const targetPD = Cut.findIndex((x) => x.key === id);
+    const newCart = Cut;
+    newCart[targetPD].quentity -= 1;
+    setCut([...newCart]);
+    let count = newCart[targetPD].quentity;
     addToDatabaseCart(id, count);
+
+    // const targetPD = Cut.find((x) => x.key === id);
+    // targetPD.quentity = targetPD.quentity >= 2 ? targetPD.quentity - 1 : targetPD.quentity;
+    // const NewPD = Cut.filter((x) => x.key !== id);
+    // setCut([...NewPD, targetPD]);
+    // let count = targetPD.quentity;
+    // addToDatabaseCart(id, count);
   };
   // Hendel product remove
   const hendelRemove = (id) => {
@@ -38,7 +51,7 @@ const ReviewProduct = (props) => {
 
   return (
     <Grid container className="review-container">
-      <Grid className="Card-conatiner" item xs={8} md={6} lg={6}>
+      <Grid className="Card-conatiner" item xs={9} md={6} lg={6}>
         <div className="image-container-review-product">
           <img src={img} alt="" srcset="" />
           <small>{name}</small>

@@ -15,6 +15,9 @@ import { createContext, useState, useEffect } from 'react';
 
 import Header from './components/Header/Header';
 import ProductDetails from './components/ProductDetails/ProductDetails';
+import CheckOut from "./components/CheckOut/CheckOut";
+import LogIn from "./components/LogIn/LogIn";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 export const productContext = createContext()
 
@@ -23,20 +26,26 @@ function App() {
 
   const [Count, setCount] = useState([])
 
+  const [logInUser, setLogInUser] = useState({})
+
+
   useEffect(() => {
     setProduct(fakeData)
   }, []);
 
   return (
-    <productContext.Provider value={[product, Count, setCount]}>
+    <productContext.Provider value={[product, Count, setCount, logInUser, setLogInUser]}>
       <Router>
-        <Header totalCut={Count}></Header>
+        <Header logInUser={logInUser} totalCut={Count}></Header>
         <Switch>
           <Route exact path="/">
             <Home></Home>
           </Route>
           <Route path="/Home">
             <Home></Home>
+          </Route>
+          <Route path="/Cut">
+            <Review></Review>
           </Route>
           <Route path="/Review">
             <Review></Review>
@@ -46,6 +55,12 @@ function App() {
           </Route>
           <Route path="/productDetails/:id">
             <ProductDetails></ProductDetails>
+          </Route>
+          <PrivateRoute path="/Checkout">
+            <CheckOut></CheckOut>
+          </PrivateRoute>
+          <Route path="/logIn">
+            <LogIn></LogIn>
           </Route>
         </Switch>
       </Router>

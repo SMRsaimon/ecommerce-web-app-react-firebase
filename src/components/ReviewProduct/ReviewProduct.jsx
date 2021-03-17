@@ -38,7 +38,7 @@ const ReviewProduct = (props) => {
 
   return (
     <Grid container className="review-container">
-      <Grid className="Card-conatiner" item xs={12} md={6} lg={6}>
+      <Grid className="Card-conatiner" item xs={8} md={6} lg={6}>
         <div className="image-container-review-product">
           <img src={img} alt="" srcset="" />
           <small>{name}</small>

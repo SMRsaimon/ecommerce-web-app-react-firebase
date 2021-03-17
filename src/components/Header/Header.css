@@ -11,7 +11,15 @@
   padding: 0 10px ;
 }
 
+.userImageLogo{
+     width: 30px;
+    height: 30px;
+    border-radius: 50%;
 
+}
+.userDisplayNameHeader{
+  font-size: 1rem;
+}
 /* Header responsive Media quariy  */
 
 @media (max-width:1000px){

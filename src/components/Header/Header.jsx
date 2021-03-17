@@ -82,6 +82,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Header = (props) => {
+  const { displayName, photoURL } = props.logInUser;
+
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -124,7 +126,9 @@ const Header = (props) => {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+      <Link to="/logIn">
+        <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+      </Link>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
     </Menu>
   );
@@ -258,7 +262,14 @@ const Header = (props) => {
                 onClick={handleProfileMenuOpen}
                 color="inherit"
               >
-                <AccountCircle />
+                {displayName ? (
+                  <>
+                    <span className="userDisplayNameHeader">{displayName}</span>
+                    <img className="userImageLogo" src={photoURL} alt="" srcset="" />
+                  </>
+                ) : (
+                  <AccountCircle />
+                )}
               </IconButton>
             </div>
 

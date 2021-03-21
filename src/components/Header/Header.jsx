@@ -82,7 +82,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Header = (props) => {
-  const { displayName, photoURL } = props.logInUser;
+  const { displayName, photoURL, name } = props.logInUser;
 
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -262,9 +262,9 @@ const Header = (props) => {
                 onClick={handleProfileMenuOpen}
                 color="inherit"
               >
-                {displayName ? (
+                {displayName || name ? (
                   <>
-                    <span className="userDisplayNameHeader">{displayName}</span>
+                    <span className="userDisplayNameHeader">{displayName || name}</span>
                     <img className="userImageLogo" src={photoURL} alt="" srcset="" />
                   </>
                 ) : (

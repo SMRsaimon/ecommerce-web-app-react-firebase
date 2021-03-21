@@ -6,8 +6,6 @@ import {
 } from "react-router-dom";
 import './App.css';
 import fakeData from "../src/product/fakeData"
-
-
 import Home from './components/Home/Home';
 import Review from './components/Review/Review';
 import Inventory from './components/Inventory/Inventory';
@@ -26,12 +24,19 @@ function App() {
 
   const [Count, setCount] = useState([])
 
-  const [logInUser, setLogInUser] = useState({})
+  const [logInUser, setLogInUser] = useState({
+    displayName: "",
+    email: "",
+    photoURL: "",
+    error: ""
+  })
 
 
   useEffect(() => {
     setProduct(fakeData)
   }, []);
+
+  console.log("app.js ", logInUser)
 
   return (
     <productContext.Provider value={[product, Count, setCount, logInUser, setLogInUser]}>

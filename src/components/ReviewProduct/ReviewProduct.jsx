@@ -30,7 +30,7 @@ const ReviewProduct = (props) => {
   const hendelQuentityDecrement = (id) => {
     const targetPD = Cut.findIndex((x) => x.key === id);
     const newCart = Cut;
-    newCart[targetPD].quentity -= 1;
+    newCart[targetPD].quentity = newCart[targetPD].quentity >= 2 ? newCart[targetPD].quentity - 1 : newCart[targetPD].quentity;
     setCut([...newCart]);
     let count = newCart[targetPD].quentity;
     addToDatabaseCart(id, count);
